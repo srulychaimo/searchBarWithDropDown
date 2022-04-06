@@ -6,7 +6,7 @@
 }
 
 #main-logo {
-  width: 15vw;
+  width: 20vw;
   max-width: 150px;
   border-radius: 50%;
 }
@@ -16,8 +16,13 @@ header {
   background-color: rgba(128, 128, 128, 0.524);
 }
 
+.main-sec {
+  background-color: rgba(128, 128, 128, 0.745);
+}
+
 h1 {
   font-family: "Merriweather", serif;
+
   text-shadow: rgb(130, 130, 130) 2px 0px 0px,
     rgb(130, 130, 130) 1.75517px 0.958851px 0px,
     rgb(130, 130, 130) 1.0806px 1.68294px 0px,

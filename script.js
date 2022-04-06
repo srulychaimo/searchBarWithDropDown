@@ -38,7 +38,8 @@ function pushAndAdd() {
     searchInput.classList.remove("d-none");
     searchUl.classList.add("d-none");
   }
-  addEventToLi();
+  addEventToLi("click", "blue");
+  addEventToLi("dblclick", "green");
 }
 
 function pushCityToArr() {
@@ -64,7 +65,7 @@ function pushCityToArr() {
 function addToUl() {
   searchUl.innerHTML = "";
   for (const city of cityArr) {
-    searchUl.innerHTML += `<li class="list-group-item">${city}</li>`;
+    searchUl.innerHTML += `<li class="list-group-item fw-bold">${city}</li>`;
   }
 }
 
@@ -80,17 +81,21 @@ function showBySearch() {
   searchUl.innerHTML = "";
   for (const city of cityArr) {
     if (city.includes(searchInput.value)) {
-      searchUl.innerHTML += `<li class="list-group-item">${city}</li>`;
+      searchUl.innerHTML += `<li class="list-group-item fw-bold">${city}</li>`;
     }
   }
 }
 
-function addEventToLi() {
+function addEventToLi(event, color) {
   if (searchUl.children.length) {
     const allLi = document.querySelectorAll("li");
     for (const element of allLi) {
-      element.addEventListener("click", (e) => {
+      element.addEventListener(event, (e) => {
+        e.target.style.color = color;
         countryDisplay.innerHTML = e.target.innerHTML.toUpperCase();
+        setTimeout(() => {
+          countryDisplay.innerHTML = "";
+        }, 5000);
       });
     }
   } else {
@@ -99,6 +104,8 @@ function addEventToLi() {
 }
 
 function showOnlyList() {
+  addEventToLi("click", "blue");
+  addEventToLi("dblclick", "green");
   searchUl.classList.remove("d-none");
   searchInput.classList.add("d-none");
 }
