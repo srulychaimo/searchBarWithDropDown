@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+#search-ul > li:hover,
+#main-logo {
+  cursor: pointer;
+}
+
+#main-logo {
+  width: 15vw;
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+header {
+  padding: 2vh;
+  background-color: rgba(128, 128, 128, 0.524);
+}
+
+h1 {
+  font-family: "Merriweather", serif;
+  text-shadow: rgb(130, 130, 130) 2px 0px 0px,
+    rgb(130, 130, 130) 1.75517px 0.958851px 0px,
+    rgb(130, 130, 130) 1.0806px 1.68294px 0px,
+    rgb(130, 130, 130) 0.141474px 1.99499px 0px,
+    rgb(130, 130, 130) -0.832294px 1.81859px 0px,
+    rgb(130, 130, 130) -1.60229px 1.19694px 0px,
+    rgb(130, 130, 130) -1.97998px 0.28224px 0px,
+    rgb(130, 130, 130) -1.87291px -0.701566px 0px,
+    rgb(130, 130, 130) -1.30729px -1.5136px 0px,
+    rgb(130, 130, 130) -0.421592px -1.95506px 0px,
+    rgb(130, 130, 130) 0.567324px -1.91785px 0px,
+    rgb(130, 130, 130) 1.41734px -1.41108px 0px,
+    rgb(130, 130, 130) 1.92034px -0.558831px 0px;
+}
