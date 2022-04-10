@@ -84,6 +84,8 @@ function showBySearch() {
       searchUl.innerHTML += `<li class="list-group-item fw-bold">${city}</li>`;
     }
   }
+  addEventToLi("click", "blue");
+  addEventToLi("dblclick", "green");
 }
 
 function addEventToLi(event, color) {
@@ -93,6 +95,7 @@ function addEventToLi(event, color) {
       element.addEventListener(event, (e) => {
         e.target.style.color = color;
         countryDisplay.innerHTML = e.target.innerHTML.toUpperCase();
+        countryDisplay.style.color = color;
         setTimeout(() => {
           countryDisplay.innerHTML = "";
         }, 5000);
