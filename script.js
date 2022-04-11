@@ -40,6 +40,7 @@ function pushAndAdd() {
   }
   addEventToLi("click", "blue");
   addEventToLi("dblclick", "green");
+  resetColor();
 }
 
 function pushCityToArr() {
@@ -64,8 +65,14 @@ function pushCityToArr() {
 
 function addToUl() {
   searchUl.innerHTML = "";
+
   for (const city of cityArr) {
-    searchUl.innerHTML += `<li class="list-group-item fw-bold">${city}</li>`;
+    searchUl.innerHTML += `
+    <div>
+      <li class="list-group-item fw-bold li-city">${city}
+        <i class="bi bi-brush reset-color" title="reset color"></i>
+      </li>
+    </div>`;
   }
 }
 
@@ -81,18 +88,27 @@ function showBySearch() {
   searchUl.innerHTML = "";
   for (const city of cityArr) {
     if (city.includes(searchInput.value)) {
-      searchUl.innerHTML += `<li class="list-group-item fw-bold">${city}</li>`;
+      searchUl.innerHTML += `
+    <div>
+      <li class="list-group-item fw-bold li-city">${city}
+        <i class="bi bi-brush reset-color" title="reset color"></i>
+      </li>
+    </div>`;
     }
   }
   addEventToLi("click", "blue");
   addEventToLi("dblclick", "green");
+  resetColor();
 }
 
 function addEventToLi(event, color) {
   if (searchUl.children.length) {
-    const allLi = document.querySelectorAll("li");
+    const allLi = document.querySelectorAll(".li-city");
     for (const element of allLi) {
       element.addEventListener(event, (e) => {
+        if (e.target.classList.contains("bi")) {
+          return;
+        }
         e.target.style.color = color;
         countryDisplay.innerHTML = e.target.innerHTML.toUpperCase();
         countryDisplay.style.color = color;
@@ -106,9 +122,26 @@ function addEventToLi(event, color) {
   }
 }
 
+function resetColor() {
+  if (searchUl.children.length) {
+    const resetColorIcons = document.querySelectorAll(".reset-color");
+
+    for (const element of resetColorIcons) {
+      element.addEventListener("click", (e) => {
+        e.target.parentElement.style.color = "black";
+        countryDisplay.style.color = "black";
+      });
+    }
+  } else {
+    console.log(false);
+    return;
+  }
+}
+
 function showOnlyList() {
   addEventToLi("click", "blue");
   addEventToLi("dblclick", "green");
+  resetColor();
   searchUl.classList.remove("d-none");
   searchInput.classList.add("d-none");
 }

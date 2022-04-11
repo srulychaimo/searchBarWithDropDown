@@ -20,6 +20,15 @@ header {
   background-color: rgba(128, 128, 128, 0.745);
 }
 
+.reset-color {
+  position: absolute;
+  right: 2vw;
+}
+
+.li-city {
+  position: relative;
+}
+
 h1 {
   font-family: "Merriweather", serif;
 
